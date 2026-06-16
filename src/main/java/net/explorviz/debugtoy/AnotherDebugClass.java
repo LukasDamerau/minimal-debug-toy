@@ -2,7 +2,10 @@ package net.explorviz.debugtoy;
 
 public class AnotherDebugClass {
 
-  private final String id; // mark this one to be included in snapshot
+// Note: For the second snapshot, no AnotherDebugClass instance is expected to
+// exist anymore. Therefore, this field should appear as a missing/deleted
+// chimney in the snapshot comparison visualization.
+  private final String id; // // mark this variable for BOTH snapshots
   private String stringAttribute;
   private int intAttribute;
   private float floatAttribute;

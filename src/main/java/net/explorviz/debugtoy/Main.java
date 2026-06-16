@@ -1,8 +1,5 @@
 package net.explorviz.debugtoy;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class Main {
 
   /**
@@ -23,8 +20,6 @@ public class Main {
  */
   public static void main(final String[] args) {
 
-    //final Map<String, Object> objects = new LinkedHashMap<>();
-
     final DebugClass inBothSnapshots = new DebugClass(
       "idInBothSnapshots",
       "in-both-snapshots-and-values-partially-changed",
@@ -43,9 +38,10 @@ public class Main {
       true
     );
 
-    breakpointForSnapshot();
     inBothSnapshots.setBooleanAttribute(false);
     inBothSnapshots.setIntAttribute(42);
+
+    breakpointForSnapshot();
 
     preventGarbageCollectionOfObjectByUsingIt(inBothSnapshots);
     preventGarbageCollectionOfObjectByUsingIt(onlyInSecondSnapshot);
@@ -55,7 +51,6 @@ public class Main {
   private static void preventGarbageCollectionOfObjectByUsingIt(final Object object) {
     System.out.println("Hello from " + object.toString());
   }
-}
 
 
  private static void firstSnapshotPhase() {
@@ -89,6 +84,7 @@ public class Main {
   }
 
   private static void breakpointForSnapshot() {
-    // SET BREAKPOINT ON THIS LINE TO HALT THE PROGRAM TWO TIMES FOR SNAPSHOT CREATION
+    // SET BREAKPOINT ON THE NEXT LINE TO HALT THE PROGRAM TWO TIMES FOR SNAPSHOT CREATION
+    return;
   }
 }
